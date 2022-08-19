@@ -53,10 +53,10 @@ NODET<T>* FindReplace(NODET<T>*& p) {
 	return rp;
 }
 template<class T>
-int Remove_X(NODET<T>*& root, T X) {
+int Remove_X(NODET<T>*& root, T X, int (*Compare)(T, T)) {
 	if (!root)return 0;
-	if (root->Data > X) Remove_X(root->Left, X);
-	else if (root->Data < X) Remove_X(root->Right, X);
+	if (Compare(root->Data, X) > 0) Remove_X(root->Left, X);
+	else if (Compare(root->Data, X) < 0) Remove_X(root->Right, X);
 	else
 	{
 		if (root->Left == NULL)root = root->Right;
