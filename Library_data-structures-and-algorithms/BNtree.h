@@ -145,7 +145,6 @@ int Count2Child(NODET<T>* root) {
 	int count = Count2Child(root->Left) + Count2Child(root->Right);
 	return (root->Left != NULL && root->Right != NULL) ? 1 + count : count;
 }
-
 template<class T>
 int HighTree(NODET<T>* root) {
 	if (root == NULL)return 0;

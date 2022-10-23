@@ -88,7 +88,7 @@ void Remove_Tail(SList<T>& l)
 		NODEL<T>* p = l.head;
 		//cho chay den vi tri gan cuoi cua list
 		for (; p != l.tail; p = p->next);
-
+		l.tail = p;
 		delete p->next;
 		p->next = NULL;
 	}
@@ -101,6 +101,11 @@ void Remove_MID(SList<T>& l, NODEL<T>* p)
 		return;
 	}
 	NODEL<T>* q = p->next;
+	if (q == l.tail)
+	{
+		Remove_Tail;
+		return;
+	}
 	p->next = q->next;
 	q->next = NULL;
 	delete q;

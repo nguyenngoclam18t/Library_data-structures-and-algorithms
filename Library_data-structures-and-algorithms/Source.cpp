@@ -1,29 +1,28 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include"Btree.h"
-int compare(int a, int b);
-int main() {
-	BTree<int>tree;
-	InitTree<int>(tree);
-	int a = 5;
-	AddNodeT<int>(tree.Root, CreateNodeT(a),compare);
-	a = 3;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	a = 2;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	a = 4;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	a = 7;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	a = 6;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	a = 8;
-	AddNodeT<int>(tree.Root, CreateNodeT(a), compare);
-	Remove_X<int>(tree.Root, 7);
-	return 0;
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <conio.h>
+#include <stdio.h>
+#include "HashTable.h"
+#include <Windows.h>
+void show(int a) {
+	printf("%d ", a);
 }
 int compare(int a, int b) {
 	if (a == b)return 0;
 	if (a > b)return 1;
 	if (a < b)return -1;
+}
+int convert(int a) {
+	return a;
+}
+/* Hàm main để thực hiện kiểm tra kết quả */
+int main()
+{
+	InputMax(100);
+	HashNode<int>* Array[100];
+	InitHashTable(Array);
+	Insert(Array, 2, convert, compare);
+	Insert(Array, 3, convert, compare);
+	Insert(Array, 102, convert, compare);
+	Insert(Array, 2, convert, compare);
+	
 }

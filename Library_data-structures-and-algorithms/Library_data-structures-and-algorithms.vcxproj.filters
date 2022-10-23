@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Btree.h">
+    <ClInclude Include="BNtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
@@ -33,6 +33,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AVLTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RedBlackTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
