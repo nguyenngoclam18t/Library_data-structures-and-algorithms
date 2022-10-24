@@ -48,9 +48,8 @@ void Insert(HashNode<T>* Array[],  T data,int(*ConvertToInt)(T),int(*compare)(T,
 				break;
 			}
 			temp = temp->next;
-
 		}
-		if (flag||temp!=Array[key])
+		if (flag||compare(temp->data,data)==0)
 			return;
 		else temp->next = CreateHashNode(data);
 	}
@@ -70,12 +69,11 @@ void Tranverse(HashNode<T>* Array[],void (*show)(T)) {
 	}
 }
 template<class T>
-void Remove(HashNode<T>* Array[], T data, int(*ConvertToInt)(T), int(*compare)(T, T)) {
+bool Remove(HashNode<T>* Array[], T data, int(*ConvertToInt)(T), int(*compare)(T, T)) {
 	int key = HashFunction(ConvertToInt(data));
 	HashNode<T>* child = Array[key];
 	if (child == NULL) {
-		printf("\nkhong thay phan tu\n ");
-		return ;
+		return false;
 	}
 	else
 	{
@@ -99,29 +97,46 @@ void Remove(HashNode<T>* Array[], T data, int(*ConvertToInt)(T), int(*compare)(T
 				Parent->next = child->next;
 			}
 			delete child;
+			return true;
 		}
 		else
 		{
-			printf("\nkhong thay phan tu \n");
+			return false;
 		}
 	}
 }
 template<class T>
-bool Find(HashNode<T>* Array[], T data, int(*ConvertToInt)(T), int(*compare)(T, T)) {
+HashNode<T>* Find(HashNode<T>* Array[], T data, int(*ConvertToInt)(T), int(*compare)(T, T)) {
 	int key = HashFunction(ConvertToInt(data));
 	HashNode<T>* child = Array[key];
 	if (child == NULL) {
-		return false;
+		return NULL;
 	}
 	else
 	{
 		while (child != NULL)
 		{
 			if (compare(child->data, data) == 0) {
-				return true;
+				return child;
 			}
 			child = child->next;
 		}
-		return false;
+		return NULL;
+	}
+}
+template<class T>
+void DeleteHash(HashNode<T>* Array[]) {
+	for (int i = 0; i < MaxSize; i++)
+	{
+		if (Array[i] != NULL) {
+			HashNode<T>* child = Array[i];
+			while (child !=NULL)
+			{
+				HashNode<T>* Parent = child;
+				child = child->next;
+				delete Parent;
+			}
+			Array[i] = NULL;
+		}
 	}
 }
