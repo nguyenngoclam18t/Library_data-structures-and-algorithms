@@ -42,9 +42,9 @@ void Push(Stack<T>& S, T x) {
 	}
 }
 template <class T>
-NODES<T>* Pop(Stack<T>& S) {
+T Pop(Stack<T>& S) {
 	if (IsEmpty(S))return NULL;
 	NODES<T>* temp = S.top;
 	S.top = S.top->next;
-	return temp;
+	return temp->data;
 }

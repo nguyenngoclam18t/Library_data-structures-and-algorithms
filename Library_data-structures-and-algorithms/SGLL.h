@@ -23,8 +23,7 @@ void init_List(SList<T>& l)
 }
 template <class T>
 bool isEmpty(SList<T>l) {
-	if (l.head == NULL)return true;
-	return false;
+	return l.head == NULL;
 }
 template <class T>
 NODEL<T>* Create_Node(T x)
@@ -87,7 +86,10 @@ void Remove_Tail(SList<T>& l)
 	else {
 		NODEL<T>* p = l.head;
 		//cho chay den vi tri gan cuoi cua list
-		for (; p != l.tail; p = p->next);
+		while (p != l.tail)
+		{
+			p = p->next;
+		}
 		l.tail = p;
 		delete p->next;
 		p->next = NULL;

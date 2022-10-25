@@ -24,5 +24,4 @@ int main()
 	Insert(Array, 3, convert, compare);
 	Insert(Array, 102, convert, compare);
 	Insert(Array, 2, convert, compare);
-	
 }
